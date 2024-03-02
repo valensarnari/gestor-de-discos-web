@@ -23,9 +23,8 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link text-white" href="Default.aspx">Inicio</a>
                             <a class="nav-link text-white" href="Listado.aspx">Listado</a>
-                            <a class="nav-link text-white" href="#">Alta</a>
+                            <a class="nav-link text-white" href="Alta.aspx">Alta</a>
                         </div>
                     </div>
                 </div>

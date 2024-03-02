@@ -16,5 +16,11 @@ namespace Presentacion
             dgvDiscos.DataSource = negocio.ListarConSP();
             dgvDiscos.DataBind();
         }
+
+        protected void dgvDiscos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = dgvDiscos.SelectedDataKey.Value.ToString();
+            Response.Redirect("Alta.aspx?id=" + id);
+        }
     }
 }
