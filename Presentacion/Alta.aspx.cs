@@ -11,8 +11,11 @@ namespace Presentacion
 {
     public partial class Alta : System.Web.UI.Page
     {
+        public bool ConfirmaEliminacion { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            ConfirmaEliminacion = false;
             txtId.Enabled = false;
 
             try
@@ -36,6 +39,7 @@ namespace Presentacion
                 {
                     btnAgregar.Visible = false;
                     btnModificar.Visible = true;
+                    btnEliminar.Visible = true;
 
                     DiscoNegocio discoNegocio = new DiscoNegocio();
                     Disco disco = discoNegocio.FiltrarPorID(Request.QueryString["id"]);
@@ -111,6 +115,30 @@ namespace Presentacion
                 discoNegocio.ModificarConSP(disco);
 
                 Response.Redirect("Listado.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+                throw;
+            }
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmaEliminacion = true;
+        }
+
+        protected void btnConfirmaEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmaEliminar.Checked)
+                {
+                    DiscoNegocio discoNegocio = new DiscoNegocio();
+                    discoNegocio.Eliminar(int.Parse(txtId.Text));
+                    Response.Redirect("Listado.aspx");
+                }
+
             }
             catch (Exception ex)
             {

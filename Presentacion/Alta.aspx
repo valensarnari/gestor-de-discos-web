@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div class="row">
         <div class="col-6 mx-auto">
             <div class="my-3">
@@ -30,13 +31,28 @@
                 <asp:Button OnClick="btnModificar_Click" ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-danger" Visible="false" />
                 <a href="Listado.aspx" class="btn btn-outline-danger">Cancelar</a>
             </div>
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                    <div class="mb-3">
+                        <asp:Button OnClick="btnEliminar_Click" ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-dark" Visible="false" />
+                    </div>
+
+                    <% if (ConfirmaEliminacion)
+                       { %>
+                            <div class="mb-3">
+                                <asp:CheckBox CssClass="form-check-label" Text="Confirmar eliminación" ID="chkConfirmaEliminar" runat="server" />
+                                <asp:Button OnClick="btnConfirmaEliminar_Click" CssClass="btn btn-dark" ID="btnConfirmaEliminar" runat="server" Text="Eliminar" />
+                            </div>
+                    <% } %>
+
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
         <div class="col-6">
             <div class="my-3">
                 <label for="ddlTipoEdicion" class="form-label">Tipo de edición</label>
                 <asp:DropDownList ID="ddlTipoEdicion" runat="server" CssClass="form-select"></asp:DropDownList>
             </div>
-            <asp:ScriptManager runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <div class="mb-3">
