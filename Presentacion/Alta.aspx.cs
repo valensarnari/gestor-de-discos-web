@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -15,6 +16,12 @@ namespace Presentacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "Debe loguearse para acceder a esta página");
+                Response.Redirect("Login.aspx", false);
+            }
+            
             ConfirmaEliminacion = false;
             txtId.Enabled = false;
 

@@ -5,5 +5,6 @@
     <div class="my-5">
         <h1>Bienvenido a la aplicación web de Discos!</h1>
         <p>Es hora de registrar nuestros discos preferidos...</p>
+        <a href="Login.aspx" class="btn btn-danger">Logueate!</a>
     </div>
 </asp:Content>
