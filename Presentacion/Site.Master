@@ -21,11 +21,23 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class=" navbar-toggler-icon"></span>
                     </button>
+
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                             <a class="nav-link text-white" href="Listado.aspx">Listado</a>
-                            <a class="nav-link text-white" href="Alta.aspx">Alta</a>
+                            <a class="nav-link text-white" href="Admin.aspx">ADMIN</a>
+                            <a class="nav-link text-white" href="NoAdmin.aspx">NO-ADMIN</a>
                         </div>
+                    </div>
+                    <div class="d-flex">
+                        <%if (!(negocio.Seguridad.SesionActiva(Session["user"]))) { %>
+                        <a href="Login.aspx" class="btn btn-danger me-2">Ingresar</a>
+                        <a href="Registro.aspx" class="btn btn-outline-danger me-2">Registrarse</a>
+                        <%} else { %>
+                        <a href="MiPerfil.aspx" class="btn btn-danger me-2">Mi Perfil</a>
+                        <asp:Button ID="btnSalir" OnClick="btnSalir_Click" runat="server" Text="Salir" CssClass="btn btn-outline-danger me-2"></asp:Button>
+                        <asp:Image style="height: 40px; width: 40px; border-radius: 50%" ID="imgPerfil" runat="server" ImageUrl="https://i.pinimg.com/originals/9f/c3/c2/9fc3c2d2989592e70c9464b23195a11c.jpg" />
+                        <%} %>
                     </div>
                 </div>
             </nav>

@@ -13,13 +13,6 @@ namespace Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // chequeo que este logueado y que sea admin
-            if (!(Session["usuario"] != null && ((dominio.Usuario)Session["usuario"]).TipoUsuario == dominio.TipoUsuario.ADMIN))
-            {
-                Session.Add("error", "No tiene permisos para acceder a esta página");
-                Response.Redirect("Login.aspx", false);
-            }
-
             // cargo listado cada ve que actualiza
             DiscoNegocio negocio = new DiscoNegocio();
 

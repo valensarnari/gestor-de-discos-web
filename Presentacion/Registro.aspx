@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Presentacion.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registro.aspx.cs" Inherits="Presentacion.Registro" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +7,7 @@
         <div class="col-6 mx-auto">
             <div class="card my-5">
                 <div class="card-header">
-                    Ingreso
+                    Registro
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
@@ -19,7 +19,7 @@
                         <asp:TextBox TextMode="Password" ID="txtContrasena" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div>
-                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" CssClass="btn btn-danger" />
+                        <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" CssClass="btn btn-danger" />
                         <a href="Default.aspx" class="btn btn-outline-danger">Regresar</a>
                     </div>
                 </div>

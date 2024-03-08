@@ -16,12 +16,6 @@ namespace Presentacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Session.Add("error", "Debe loguearse para acceder a esta página");
-                Response.Redirect("Login.aspx", false);
-            }
-            
             ConfirmaEliminacion = false;
             txtId.Enabled = false;
 
